@@ -1,6 +1,6 @@
 # Annotated Shelf
 
-Annotated Shelf is a Dart library that helps developers create REST API services using annotations.
+Annotated Shelf is a powerful Dart library based on dart shelf for generating REST APIs using annotations. With a simple and intuitive interface, you can easily build APIs that are fast, efficient, and easy to use. 
 
 ## Features
 

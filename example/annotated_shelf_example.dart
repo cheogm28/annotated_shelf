@@ -1,39 +1,3 @@
-# Annotated Shelf
-
-Annotated Shelf is a powerful Dart library for generating REST APIs using annotations. With a simple and intuitive interface, you can easily build APIs that are fast, efficient, and easy to use.
-
-## Features
-
-- Support for multiple HTTP methods and request types
-- Automatic validation of request parameters
-
-## Installation
-
-To install Annotated Shelf, add it as a dependency in your `pubspec.yaml` file:
-
-```yml
-dependencies:
-  annotated_shelf: ^1.0.0
-```
-
-Then, run `pub get` to install the package.
-
-## Getting Started
-
-To use Annotated Shelf to create a REST API, import the library and annotate your models and controllers with the following annotations:
-
-```dart
-@RestAPI,
-@GET,
-@POST,
-@PUT,
-@DELETE,
-@PATCH,
-```
-Annotated Shelf will automatically generate the necessary routes and endpoints based on the annotations you have provided.
-
-## Example
-``` dart
 import 'package:annotated_shelf/annotated_shelf.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as io;
@@ -89,13 +53,12 @@ class ItemsAdaptor {
         itemsList.lastIndexWhere((element) => element.name == item.name);
     if (index == -1) {
       itemsList.add(item);
-      return Response(201); // pass a shelf response
+      return Response(201);
     } else {
       throw BadRequestError('item with name in list');
     }
   }
 }
-
 
 Future<void> main(List<String> args) async {
   var router = Cascade();
@@ -105,14 +68,3 @@ Future<void> main(List<String> args) async {
   var server = await io.serve(router.handler, _hostname, _port);
   print('Serving at http://${server.address.host}:${server.port}');
 }
-
-```
-## Contributing
-
-We welcome contributions to Annotation Shelf! If you have an idea for a new feature or have found a bug, please open an issue on GitHub.
-
-## License
-
-Annotation Shelf is released under the MIT License. See LICENSE for details.
-
-This README file provides an overview of Annotation Shelf and its features, as well as instructions on how to install and use the library. It also includes examples

@@ -17,5 +17,5 @@
 ## 0.0.4
 - updating readme with correct version 
 
-## 0.0.4
+## 0.0.5
 - pub dev automation update

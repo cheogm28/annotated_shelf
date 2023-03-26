@@ -1,0 +1,16 @@
+.buildlog
+.DS_Store
+.atom/
+.dart_tool/
+.idea/
+.packages
+.pub
+.settings/
+.vscode/
+build/
+doc/
+lcov.info
+packages
+test_data/
+testing/
+pubspec.lock

@@ -113,6 +113,6 @@ We welcome contributions to Annotation Shelf! If you have an idea for a new feat
 
 ## License
 
-Annotation Shelf is released under the MIT License. See LICENSE for details.
+Annotation Shelf is released under the BSD-3-Clause. See LICENSE for details.
 
 This README file provides an overview of Annotation Shelf and its features, as well as instructions on how to install and use the library. It also includes examples

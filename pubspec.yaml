@@ -1,7 +1,7 @@
 name: annotated_shelf
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# homepage: https://www.example.com
+description: powerful Dart library for generating REST APIs using annotations. With a simple and intuitive interface, you can easily build APIs that are fast, efficient, and easy to use.
+version: 0.0.4
+homepage: https://github.com/cheogm28/annotated_shelf
 
 environment:
   sdk: '>=2.17.6 <3.0.0'
@@ -11,4 +11,4 @@ dev_dependencies:
   test: ^1.16.0
   http: ^0.13.5
 
-dependencies: {json_annotation: 4.7.0, shelf: 1.4.0, shelf_multipart: 1.0.0}
+dependencies: {json_annotation: ^4.7.0, shelf: ^1.4.0, shelf_multipart: ^1.0.0}

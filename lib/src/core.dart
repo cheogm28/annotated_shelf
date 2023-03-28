@@ -46,13 +46,12 @@ bool isSameLink(List<String> originalParam, List<String> requestParams) {
     response = true;
     var copyOfOriginal = [...originalParam];
     var copyRequestParam = [...requestParams];
-
     copyRequestParam.removeWhere((element) => originalParam.contains(element));
     copyOfOriginal.removeWhere((element) => requestParams.contains(element));
 
     if (copyRequestParam.length == copyOfOriginal.length) {
       for (var element in copyOfOriginal) {
-        response = element.contains('<') && element.contains('>');
+        response = element.contains('<');
       }
     }
   }
@@ -278,7 +277,8 @@ Response handleResponse(dynamic response) {
       }
     }
     return Response(200,
-        body: json.encode(responseList), headers: {"content-type": "application/json"});
+        body: json.encode(responseList),
+        headers: {"content-type": "application/json"});
   }
   return Response(200,
       body: json.encode(response.toJson()),

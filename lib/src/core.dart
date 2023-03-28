@@ -43,6 +43,7 @@ Map getPathParamsMap(List<String> originalParam, List<String> requestParams) {
 bool isSameLink(List<String> originalParam, List<String> requestParams) {
   var response = false;
   if (originalParam.length == requestParams.length) {
+    response = true;
     var copyOfOriginal = [...originalParam];
     var copyRequestParam = [...requestParams];
 
@@ -51,7 +52,7 @@ bool isSameLink(List<String> originalParam, List<String> requestParams) {
 
     if (copyRequestParam.length == copyOfOriginal.length) {
       for (var element in copyOfOriginal) {
-        response = element.contains('<');
+        response = element.contains('<') && element.contains('>');
       }
     }
   }

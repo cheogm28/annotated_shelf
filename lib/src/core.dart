@@ -277,7 +277,7 @@ Response handleResponse(dynamic response) {
       }
     }
     return Response(200,
-        body: responseList, headers: {"content-type": "application/json"});
+        body: json.encode(responseList), headers: {"content-type": "application/json"});
   }
   return Response(200,
       body: json.encode(response.toJson()),

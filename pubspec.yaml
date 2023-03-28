@@ -1,6 +1,6 @@
 name: annotated_shelf
 description: powerful Dart library for generating REST APIs using annotations. With a simple and intuitive interface, you can easily build APIs that are fast, efficient, and easy to use.
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/cheogm28/annotated_shelf
 
 environment:

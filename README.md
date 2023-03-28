@@ -4,6 +4,7 @@ Annotated Shelf is a powerful Dart library for generating REST APIs using annota
 ## Features
 
 - Support for multiple HTTP methods and request types
+- Support for File upload
 - Automatic validation of request parameters
 
 ## Installation
@@ -54,6 +55,33 @@ class Item extends Payload {
   Map<String, dynamic> toJson() => {"name": name};
 }
 
+class TestForm extends Form {
+  String name;
+  int number;
+  File image;
+
+  TestForm(this.name, this.number, this.image);
+  
+ @override
+  factory TestForm.fromJson(Map<String, dynamic> json) {
+      return TestForm(
+      json['name'] as String,
+      json['number'] as int,
+      File.fromJson(json['image'] as Map<String, dynamic>),
+      json['boolean'] as bool,
+    );
+  }
+  
+  @override
+  Map<String, dynamic> toJson() => <String, dynamic>{
+      'name': instance.name,
+      'number': instance.number,
+      'image': instance.image,
+      'boolean': instance.boolean,
+    };
+
+}
+
 @RestAPI(baseUrl: 'to-do/list')
 class ItemsAdaptor {
   @GET()
@@ -93,6 +121,16 @@ class ItemsAdaptor {
       throw BadRequestError('item with name in list');
     }
   }
+  
+  // examplo of uploading a file
+  @POST(url: '/upload')
+  Future<RestResponse> upload(String name, TestForm form) async {
+    print('from post: ${name}');
+    print(form);
+    return new RestResponse(201, {"msj": 'ok'}, "application/json");
+  }
+  
+  
 }
 
 
@@ -113,3 +151,6 @@ We welcome contributions to Annotation Shelf! If you have an idea for a new feat
 ## License
 
 Annotation Shelf is released under the BSD-3-Clause. See LICENSE for details.
+
+## thanks
+Special thanks to the Shelf project team for providing us with the opportunity to create servers using this beautiful language.

@@ -1,10 +1,10 @@
 # Annotated Shelf
 
-Annotated Shelf is a powerful Dart library for generating REST APIs using annotations. With a simple and intuitive interface, you can easily build APIs that are fast, efficient, and easy to use.
-
+Annotated Shelf is a powerful Dart library for generating REST APIs using annotations. Based on the popular Shelf library, Annotated Shelf provides a simple and intuitive interface for building APIs that are fast, efficient, and easy to use.
 ## Features
 
 - Support for multiple HTTP methods and request types
+- Support for File upload
 - Automatic validation of request parameters
 
 ## Installation
@@ -13,7 +13,7 @@ To install Annotated Shelf, add it as a dependency in your `pubspec.yaml` file:
 
 ```yml
 dependencies:
-  annotated_shelf: ^0.0.5
+  annotated_shelf: ^0.0.6
 ```
 
 Then, run `pub get` to install the package.
@@ -55,27 +55,51 @@ class Item extends Payload {
   Map<String, dynamic> toJson() => {"name": name};
 }
 
-@RestAPI(baseUrl: 'to-do/list')
+class TestForm extends Form {
+  String name;
+  int number;
+  File image;
+
+  TestForm(this.name, this.number, this.image);
+
+  @override
+  factory TestForm.fromJson(Map<String, dynamic> json) {
+    return TestForm(
+      json['name'] as String,
+      json['number'] as int,
+      File.fromJson(json['image'] as Map<String, dynamic>),
+    );
+  }
+
+  @override
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'name': name,
+        'number': number,
+        'image': image,
+      };
+}
+
+@RestAPI(baseUrl: '/to-do/list')
 class ItemsAdaptor {
   @GET()
   List<Item> getAllItems(Request request) {
     return itemsList;
   }
 
-  @GET(url: "/<iteName>")
-  Item getItemByName(String name) {
-    var index = itemsList.lastIndexWhere((element) => element.name == name);
-    if (index > 0) {
+  @GET(url: "/<itemName>")
+  Item getItemByName(String itemName) {
+    var index = itemsList.lastIndexWhere((element) => element.name == itemName);
+    if (index >= 0) {
       return itemsList[index];
     } else {
       throw NotFoundError('item not found'); // this creates a 404 response
     }
   }
 
-  @PUT(url: "/<iteName>")
+  @PUT(url: "/<itemName>")
   Item updateItem(Item item, String itemName) {
     var index = itemsList.lastIndexWhere((element) => element.name == itemName);
-    if (index > 0) {
+    if (index >= 0) {
       itemsList[index] = item;
       return getItemByName(item.name ?? '');
     } else {
@@ -94,8 +118,14 @@ class ItemsAdaptor {
       throw BadRequestError('item with name in list');
     }
   }
-}
 
+  // examplo of uploading a file
+  @POST(url: '/upload')
+  Future<RestResponse> upload(TestForm form) async {
+    print(form);
+    return new RestResponse(201, {"msj": 'ok'}, "application/json");
+  }
+}
 
 Future<void> main(List<String> args) async {
   var router = Cascade();
@@ -106,6 +136,18 @@ Future<void> main(List<String> args) async {
   print('Serving at http://${server.address.host}:${server.port}');
 }
 
+/* 
+-------------------------------------
+mounting Instance of 'ItemsAdaptor'
+adding get to-do/list
+adding get to-do/list/<iteName>
+adding put to-do/list/<iteName>
+adding post to-do/list/
+adding post to-do/list/upload
+-------------------------------------
+Serving at http://localhost:8080
+*/
+
 ```
 ## Contributing
 
@@ -114,3 +156,6 @@ We welcome contributions to Annotation Shelf! If you have an idea for a new feat
 ## License
 
 Annotation Shelf is released under the BSD-3-Clause. See LICENSE for details.
+
+## thanks
+Special thanks to the Shelf project team for providing us with the opportunity to create servers using this beautiful language.

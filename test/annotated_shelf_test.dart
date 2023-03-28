@@ -189,13 +189,13 @@ void main() {
       expect(response[0].name, "test_name");
     }));
 
-    test('it can response an array of objects', (() async {
+    test('it can response an array as json', (() async {
       Response response = handleResponse(
           [TestPayload('hola'), TestPayload('hola'), TestPayload('hola')]);
       expect(response, TypeMatcher<Response>());
       expect(response.statusCode, 200);
       expect(response.headers['content-type'], 'application/json');
-      expect(int.parse(response.headers['content-length'] ?? '0'), 3);
+      expect(int.parse(response.headers['content-length'] ?? '0'), 49);
     }));
     test('it can response an objects', (() async {
       Response response = handleResponse(TestPayload('hola'));

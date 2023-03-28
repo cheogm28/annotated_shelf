@@ -43,9 +43,9 @@ Map getPathParamsMap(List<String> originalParam, List<String> requestParams) {
 bool isSameLink(List<String> originalParam, List<String> requestParams) {
   var response = false;
   if (originalParam.length == requestParams.length) {
+    response = true;
     var copyOfOriginal = [...originalParam];
     var copyRequestParam = [...requestParams];
-
     copyRequestParam.removeWhere((element) => originalParam.contains(element));
     copyOfOriginal.removeWhere((element) => requestParams.contains(element));
 
@@ -277,7 +277,8 @@ Response handleResponse(dynamic response) {
       }
     }
     return Response(200,
-        body: responseList, headers: {"content-type": "application/json"});
+        body: json.encode(responseList),
+        headers: {"content-type": "application/json"});
   }
   return Response(200,
       body: json.encode(response.toJson()),

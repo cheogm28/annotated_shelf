@@ -19,3 +19,11 @@
 
 ## 0.0.5
 - pub dev automation update
+
+## 0.0.6
+- pub dev automation update
+- update core method is smale link to match a get
+- Update the return list handler 
+- Update the reame with example that contains file uploading
+- Udate readme to fix some aprameters names on example
+- Update readme to add thanks section.

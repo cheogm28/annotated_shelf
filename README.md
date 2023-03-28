@@ -68,16 +68,14 @@ class TestForm extends Form {
       json['name'] as String,
       json['number'] as int,
       File.fromJson(json['image'] as Map<String, dynamic>),
-      json['boolean'] as bool,
     );
   }
   
   @override
   Map<String, dynamic> toJson() => <String, dynamic>{
-      'name': instance.name,
-      'number': instance.number,
-      'image': instance.image,
-      'boolean': instance.boolean,
+      'name': this.name,
+      'number': this.number,
+      'image': this.image
     };
 
 }
@@ -124,8 +122,7 @@ class ItemsAdaptor {
   
   // examplo of uploading a file
   @POST(url: '/upload')
-  Future<RestResponse> upload(String name, TestForm form) async {
-    print('from post: ${name}');
+  Future<RestResponse> upload(TestForm form) async {
     print(form);
     return new RestResponse(201, {"msj": 'ok'}, "application/json");
   }
@@ -142,6 +139,18 @@ Future<void> main(List<String> args) async {
   var server = await io.serve(router.handler, _hostname, _port);
   print('Serving at http://${server.address.host}:${server.port}');
 }
+
+/* 
+-------------------------------------
+mounting Instance of 'ItemsAdaptor'
+adding get to-do/list
+adding get to-do/list/<iteName>
+adding put to-do/list/<iteName>
+adding post to-do/list/
+adding post to-do/list/upload
+-------------------------------------
+Serving at http://localhost:8080
+*/
 
 ```
 ## Contributing

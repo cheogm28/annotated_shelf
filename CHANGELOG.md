@@ -32,3 +32,4 @@
 - Figinx typo
 - Adding header image 
 - Adding header text
+- Update description

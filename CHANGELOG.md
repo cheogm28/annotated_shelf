@@ -27,3 +27,9 @@
 - Update the reame with example that contains file uploading
 - Udate readme to fix some aprameters names on example
 - Update readme to add thanks section.
+## 0.0.6+1
+- Update README
+- Figinx typo
+- Adding header image 
+- Adding header text
+- Update description

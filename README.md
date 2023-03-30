@@ -1,14 +1,17 @@
 <p align="center">
   <a href="https://pub.dev/packages/annotated_shelf"><img src="https://i.imgur.com/fP8Nm4j.png" style="max-height: 318px; min-height: 318px; max-width: 783px;" alt="Annotated Shelf"></a>
 </p>
-
+<p align="center">
+    <em>Powerful, Lightweight, Fast development, Easy to learn</em>
+</p>
  
-Annotated Shelf is a powerful Dart library for generating REST APIs using annotations. Based on the popular Shelf library, Annotated Shelf provides a simple and intuitive interface for building APIs that are fast, efficient, and easy to use.
+Annotated Shelf is a powerful and lightweight Dart framework for generating REST APIs using annotations. Based on the popular Shelf library, Annotated Shelf provides a simple and intuitive interface for building APIs that are fast, efficient, and easy to use without lossing what Shelf can offer.
 ## Features
 
-- Support for multiple HTTP methods and request types
-- Support for File upload
-- Automatic validation of request parameters
+- Support for multiple HTTP methods and request types.
+- Support for File upload.
+- Automatic validation of request parameters.
+- Automatic Error respones based on exceptions.
 
 ## Installation
 

@@ -33,3 +33,5 @@
 - Adding header image 
 - Adding header text
 - Update description
+## 0.0.7
+- [BUGFIX] Update Annotation

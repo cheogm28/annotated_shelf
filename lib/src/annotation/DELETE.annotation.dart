@@ -6,8 +6,8 @@ import '../core.dart';
 
 dynamic deleteHandler(
     Uri urlUri, Request request, Function deleteFunction) async {
-  if (isSameLink(urlUri.pathSegments, request.url.pathSegments) &&
-      request.method.toLowerCase() == HttpVerbs.delete.toStr()) {
+  if (request.method.toLowerCase() == HttpVerbs.delete.name &&
+      isSameLink(urlUri.pathSegments, request.url.pathSegments)) {
     var pathParameters =
         getPathParamsMap(urlUri.pathSegments, request.url.pathSegments);
     Map<String, dynamic> parameters = {

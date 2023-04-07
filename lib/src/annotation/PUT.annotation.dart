@@ -7,8 +7,8 @@ import '../models/enums/http_verbs.dart';
 import '../core.dart';
 
 dynamic putHandler(Uri urlUri, Request request, Function putFunction) async {
-  if (isSameLink(urlUri.pathSegments, request.url.pathSegments) &&
-      request.method.toLowerCase() == HttpVerbs.put.toStr()) {
+  if (request.method.toLowerCase() == HttpVerbs.put.name &&
+      isSameLink(urlUri.pathSegments, request.url.pathSegments)) {
     var pathParameters =
         getPathParamsMap(urlUri.pathSegments, request.url.pathSegments);
     Map<String, dynamic> parameters = {

@@ -6,8 +6,8 @@ import '../core.dart';
 
 dynamic patchHandler(
     Uri urlUri, Request request, Function patchFunction) async {
-  if (isSameLink(urlUri.pathSegments, request.url.pathSegments) &&
-      request.method.toLowerCase() == HttpVerbs.patch.toStr()) {
+  if (request.method.toLowerCase() == HttpVerbs.patch.name &&
+      isSameLink(urlUri.pathSegments, request.url.pathSegments)) {
     var pathParameters =
         getPathParamsMap(urlUri.pathSegments, request.url.pathSegments);
     Map<String, dynamic> parameters = {

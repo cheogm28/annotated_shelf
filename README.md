@@ -20,7 +20,7 @@ To install Annotated Shelf, add it as a dependency in your `pubspec.yaml` file:
 
 ```yml
 dependencies:
-  annotated_shelf: ^0.0.7
+  annotated_shelf: ^0.1.0
 ```
 
 Then, run `pub get` to install the package.

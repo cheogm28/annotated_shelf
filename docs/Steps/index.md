@@ -28,7 +28,7 @@ This folder structure is the one you will use in this project. Using this struct
 
 - **server:** This is your Main, where you mount the annotated adaptors.
 
-# Creating the base
+## Creating the base
 
 Under the Adaptors folder, create a file item_adaptor.dart and add a class ItemAdaptor with some handlers. 
 
@@ -129,7 +129,7 @@ void main(List<String> args) async {
 Ok, now it is time to upgrade this app with annoteted_shelf 🎉. To do it, you add the dependencies by adding the lines on the pubspec.yaml file like this ( please check the readme to see the correct version):
 ```{code}
   shelf: ^1.4.0
-  annotated_shelf: ^0.0.7
+  annotated_shelf: ^0.1.0
 ```
 Then we execute the command pub get to download the packages in our locally. 
 ```{code}

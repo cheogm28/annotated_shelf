@@ -1,0 +1,346 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Shelf" href="../Shelf/index.html" /><link rel="prev" title="Annotations" href="../Annotations/index.html" />
+
+    <link rel="shortcut icon" href="../_static/shelf_logo.png"/><!-- Generated with Sphinx 4.5.0 and Furo 2023.03.27 -->
+        <title>REST API - annotated_shelf documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">annotated_shelf  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../_static/shelf_logo.png" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Features/index.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Annotations/index.html"><i class="fa-solid fa-at"></i> Annotations</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#"><i class="fa-solid fa-code-compare"></i> REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Shelf/index.html"><i class="fa-solid fa-book"></i> Shelf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorial/index.html"><i class="fa-solid fa-bolt"></i> Quick Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Steps/index.html"><i class="fa-solid fa-shoe-prints"></i> Step by Step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Steps/index.html#creating-the-base">Creating the base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribute/index.html"><i class="fa-solid fa-code"></i> Creator and contributtors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RoadMap/index.html"><i class="fa-solid fa-map-location-dot"></i> Road Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Release/index.html"><i class="fa-solid fa-pencil"></i> release Notes</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="rest-api">
+<h1><i class="fa-solid fa-code-compare"></i> REST API<a class="headerlink" href="#rest-api" title="Permalink to this headline">#</a></h1>
+<p>A REST (Representational State Transfer) API is a web service that uses HTTP methods to manipulate resources by URLs. REST is an architectural style for building web services based on treating the web as a set of resources, each uniquely identified by a URI (Uniform Resource Identifier).
+In a REST API, clients send requests to the server to create, read, update, or delete resources. The server responds with the appropriate HTTP status code and representations in a format such as JSON or XML.
+A REST API typically has the following characteristics:</p>
+<ul class="simple">
+<li><p><strong>Client-server architecture:</strong> The client and server are separate components that communicate over the network.</p></li>
+<li><p><strong>Statelessness:</strong> Each request contains all the information necessary for the server to process it, and the client context is stored on the server between requests.</p></li>
+<li><p><strong>Cacheability:</strong> Responses must be marked as cacheable or non-cacheable to prevent clients from reusing stale or inappropriate data in response to further requests.</p></li>
+<li><p><strong>Layered system:</strong> A client cannot tell whether it is connected directly to the server or an intermediary, such as a load balancer or cache.</p></li>
+<li><p><strong>Uniform interface:</strong> The interface between the client and server should be uniform across all resources, following a set of well-defined constraints.</p></li>
+</ul>
+<p>The URL (Uniform Resource Locator) is a string of characters that locates a resource on the web. Some uses of URLs are: to identify a web page, a file, an image, a video, or any other resource that can be accessed using a web browser or other software that supports the HTTP (Hypertext Transfer Protocol) or other web protocols.
+URLs have a standardized format that includes a protocol (such as HTTP or HTTPS).</p>
+<section id="url-parts">
+<h2>&#64; URL parts:<a class="headerlink" href="#url-parts" title="Permalink to this headline">#</a></h2>
+<p>A URL typically consists of the following parts:</p>
+<ul class="simple">
+<li><p><strong>Scheme:</strong> The scheme specifies the protocol used to access the resource on the web.</p></li>
+<li><p><strong>Host:</strong> The host is the domain name or IP address where of the location of a resource, for instance, www.annotated_shelf.com.</p></li>
+<li><p><strong>Port:</strong> The port number is used to identify a specific process to which an Internet or other network message is to be delivered. The port number in the URL follows the domain name or IP address, separated by a colon. For example, if a server is on port 5000 instead of the default port 80.
+It looks like this: https://www.annotated_shelf.com:5000</p></li>
+<li><p><strong>Path:</strong> The path specifies the location of the resource on the web server. It starts with a slash (/) and can include subdirectories and file names.</p></li>
+<li><p><strong>Query string:</strong> The query string allows sending additional information to the server as key-value pairs. It starts with a question mark (?) and includes one or more parameters separated by ampersands (&amp;). For example, ?param1=value1&amp;param2=value2.</p></li>
+<li><p><strong>Fragment identifier:</strong> The fragment identifier specifies a section, usually an anchor tag, to which the URL refers. It starts with a hash (#),  and it s often in combination with a named anchor tag to provide links to specific parts of a page.</p></li>
+</ul>
+<p>Here’s an example URL that includes all of these parts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://www.annotated_shelf.com:8080/path/to/resource?param1=value1&amp;param2=value2#section1
+</pre></div>
+</div>
+<p>In this example:</p>
+<ul class="simple">
+<li><p><strong>Scheme:</strong> https</p></li>
+<li><p><strong>Host:</strong> www.annotated_shelf.com</p></li>
+<li><p><strong>Port:</strong> 8080</p></li>
+<li><p><strong>Path:</strong> /path/to/resource</p></li>
+<li><p><strong>Query string:</strong> ?param1=value1&amp;param2=value2</p></li>
+<li><p><strong>Fragment identifier:</strong> #section1</p></li>
+</ul>
+<p>Another concept you need to CRUD is a common concept in REST APIs that stands for Create, Read, Update, and Delete. It represents the basic operations performed on a resource in a RESTful API.</p>
+<p>Here’s a brief overview of what each entails:</p>
+</section>
+<section id="create-post">
+<h2>&#64; Create/POST<a class="headerlink" href="#create-post" title="Permalink to this headline">#</a></h2>
+<p>This operation creates a new resource in the API. It typically involves sending data to the server as a request body, which contains the details of the new item. The server then creates the resource and returns a response with the details of the newly created resource.</p>
+</section>
+<section id="read-get">
+<h2>&#64; Read/GET<a class="headerlink" href="#read-get" title="Permalink to this headline">#</a></h2>
+<p>This operation retrieves one or more resources from the API. It typically involves sending a request to the server with a set of query parameters that specify the criteria for the resources to be retrieved. The server then returns a response with the details of the requested resources.</p>
+</section>
+<section id="update-put">
+<h2>&#64; Update/PUT<a class="headerlink" href="#update-put" title="Permalink to this headline">#</a></h2>
+<p>This operation modifies an existing resource in the API. It typically involves sending data to the server as a request body, which contains the updated details of the item. The server then updates the resource and returns a response with the updated details.</p>
+</section>
+<section id="delete-delete">
+<h2>&#64; Delete/DELETE<a class="headerlink" href="#delete-delete" title="Permalink to this headline">#</a></h2>
+<p>This operation removes a resource from the API. It typically involves sending a request to the server with a unique identifier of the item and deleting it. The server then removes the resource and returns a response indicating all is ok.</p>
+<p>CRUD operations form the foundation of most RESTful APIs and provide a simple and intuitive way for clients to interact with resources in the API. It’s important to note that CRUD operations are not the only types of operations in a RESTful API, but they are a good starting point for building a basic API.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../Shelf/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title"><i class="fa-solid fa-book"></i> Shelf</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../Annotations/index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title"><i class="fa-solid fa-at"></i> Annotations</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Marcelo Gomez
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><i class="fa-solid fa-code-compare"></i> REST API</a><ul>
+<li><a class="reference internal" href="#url-parts">&#64; URL parts:</a></li>
+<li><a class="reference internal" href="#create-post">&#64; Create/POST</a></li>
+<li><a class="reference internal" href="#read-get">&#64; Read/GET</a></li>
+<li><a class="reference internal" href="#update-put">&#64; Update/PUT</a></li>
+<li><a class="reference internal" href="#delete-delete">&#64; Delete/DELETE</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    </body>
+</html>

@@ -35,3 +35,5 @@
 - Update description
 ## 0.0.7
 - [BUGFIX] Update Annotation
+## 0.1.0
+- 📝 add documentation

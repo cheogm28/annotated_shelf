@@ -6,7 +6,7 @@
 </p>
  
  ###  Documentation:
- <a href=https://annotated-shelf.readthedocs.io/en/features-add_docs/Rest/index.html>https://annotated-shelf.readthedocs.io/en/features-add_docs/Rest/index.html</a>
+ <a href=https://annotated-shelf.readthedocs.io/en/features-add_docs/index.html>https://annotated-shelf.readthedocs.io/en/features-add_docs/index.html</a>
 
 Annotated Shelf is a powerful and lightweight Dart framework for generating REST APIs using annotations. Based on the popular Shelf library. Annotated Shelf provides a simple and intuitive interface for building APIs fast, efficiently, and easy to use without losing what Shelf can offer.
 
